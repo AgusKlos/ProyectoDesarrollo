@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import utniconwhite from '../images/utniconwhite.png';
 import {Row, Col, Button, Card, ListGroup, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Notificacion from '../components/notificacion'
 
 const Comunidad = () => {
 
@@ -33,18 +32,6 @@ const Comunidad = () => {
         navigate('/beneficios');
     }
 
-    const [showNotification, setShowNotification] = useState(false);
-    const [message, setMessage] = useState('');
-
-    const handleShowNotification = () => {
-        setShowNotification(true);
-        setMessage('Esta sería la notificación');
-    };
-
-    const handleHideNotification = () => {
-        setShowNotification(false);
-    };
-
     return (
         <>
             <Navbar className="bg-dark text-white text-center py-2">
@@ -63,9 +50,6 @@ const Comunidad = () => {
                             </Nav>
                         </Navbar.Collapse>
                 </Container>
-                <Col xs={7} md={2} className='mx-5'>
-                    <Notificacion show={showNotification} message={message} />
-                </Col>
                 <Button variant="outline-light me-3" onClick={handleLoginClick}>
                     Iniciar Sesión
                 </Button>
@@ -75,17 +59,11 @@ const Comunidad = () => {
                 <header className="bg-primary text-white py-3">
                     <Container>
                     <Row className="align-items-center">
-                        <Col xs={7} md={6}>
-                            <h1>Nombre de la Comunidad</h1>
+                        <Col xs={12} md={6}>
+                        <h1>Nombre de la Comunidad</h1>
                         </Col>
-                        <Col xs={7} md={2}>
-                            <Button variant="light" onClick={handleShowNotification}>Mostrar notificación</Button>
-                        </Col>
-                        <Col xs={7} md={2}>
-                            <Button variant="light" onClick={handleHideNotification}>Ocultar notificación</Button>
-                        </Col>
-                        <Col xs={7} md={2} className="text-md-end">
-                            <Button variant="light">Unirse</Button>
+                        <Col xs={12} md={6} className="text-md-end">
+                        <Button variant="light">Unirse</Button>
                         </Col>
                     </Row>
                     </Container>
